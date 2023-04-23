@@ -31,12 +31,42 @@ public class BooksController : ControllerBase
     }
 
     [HttpPost]
+    // public async Task<IActionResult> Post(Book newBook)
+    // {
+    //     await _booksService.CreateAsync(newBook);
+
+    //     return CreatedAtAction(nameof(Get), new { id = newBook.Id }, newBook);
+    // }
+
+    [HttpPost]
     public async Task<IActionResult> Post(Book newBook)
     {
-        await _booksService.CreateAsync(newBook);
+        if (ModelState.IsValid)
+        {
+            await _booksService.CreateAsync(newBook);
 
-        return CreatedAtAction(nameof(Get), new { id = newBook.Id }, newBook);
+            return CreatedAtAction(nameof(Get), new { id = newBook.Id }, newBook);
+        }
+        else
+        {
+            var errors = ModelState
+    .Where(e => e.Value?.Errors.Count > 0)
+    .ToDictionary(
+        kvp => kvp.Key,
+        kvp => kvp.Value?.Errors.Select(e => e.ErrorMessage).ToArray()
+    );
+
+
+            return BadRequest(new
+            {
+                Message = "The request is invalid.",
+                ModelState = errors
+            });
+        }
     }
+
+
+
 
     [HttpPut("{id:length(24)}")]
     public async Task<IActionResult> Update(string id, Book updatedBook)
