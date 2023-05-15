@@ -51,3 +51,5 @@ C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\System.Web.WebPages.Deploym
 C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\System.Web.WebPages.Razor.dll
 C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\System.Web.WebPages.dll
 C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\BookStoreApi.xml
+C:\Users\leosa\TodoApi\BookStoreApi\obj\Debug\net7.0\BookStoreApi.xml

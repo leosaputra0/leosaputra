@@ -15,11 +15,23 @@ public class BooksController : ControllerBase
     public BooksController(BooksService booksService) =>
         _booksService = booksService;
 
+    /// <summary>
+    /// Get all items TodoItem.
+    /// </summary>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<List<Book>> Get() =>
         await _booksService.GetAsync();
 
+    /// <summary>
+    /// Get a specific TodoItem.
+    /// </summary>
     [HttpGet("{id:length(24)}")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<Book>> Get(string id)
     {
         var book = await _booksService.GetAsync(id);
@@ -32,7 +44,30 @@ public class BooksController : ControllerBase
         return book;
     }
 
+    /// <summary>
+    /// Creates a TodoItem.
+    /// </summary>
+    /// <param name="newBook"></param>
+    /// <returns>A newly created TodoItem</returns>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     POST /Todo
+    ///     {
+    ///        "id": 1,
+    ///        "name": "Item #1",
+    ///        "isComplete": true
+    ///     }
+    ///
+    /// </remarks>
+    /// <response code="201">Returns the newly created item</response>
+    /// <response code="400">If the item is null</response>
+
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Post(Book newBook)
     {
         try
@@ -54,7 +89,13 @@ public class BooksController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Put a specific TodoItem.
+    /// </summary>
     [HttpPut("{id:length(24)}")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Update(string id, Book updatedBook)
     {
         var book = await _booksService.GetAsync(id);
@@ -71,7 +112,15 @@ public class BooksController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Deletes a specific TodoItem.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id:length(24)}")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Delete(string id)
     {
         var book = await _booksService.GetAsync(id);
