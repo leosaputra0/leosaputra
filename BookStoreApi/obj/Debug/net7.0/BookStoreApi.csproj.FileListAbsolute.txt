@@ -53,3 +53,10 @@ C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\System.Web.WebPages.dll
 C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
 C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\BookStoreApi.xml
 C:\Users\leosa\TodoApi\BookStoreApi\obj\Debug\net7.0\BookStoreApi.xml
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\leosa\TodoApi\BookStoreApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
