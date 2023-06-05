@@ -1,21 +1,26 @@
 using System.Reflection;
-using System.Text;
 using BookStoreApi.Models;
-
 using BookStoreApi.Services;
+using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
+using System.Text;
 
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.Configure<BookStoreDatabaseSettings>(
+
     builder.Configuration.GetSection("BookStoreDatabase"));
 
 builder.Services.AddSingleton<BooksService>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(
+        options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -38,23 +43,24 @@ builder.Services.AddAuthorization();
 // Add configuration from appsettings.json
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .AddEnvironmentVariables();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Version = "v1.2",
-        Title = "BookStore API",
-        Description = "An ASP.NET Core Web API for managing BookStore items",
+        Version = "v1",
+        Title = "BookStore [API]",
+        Description = "An ASP.NET Core Web API for managing BookStore items. Provides a collection of BookStore items and provides a collection of methods.",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
         {
-            Name = "Example Contact",
+            Name = "Contact",
             Url = new Uri("https://example.com/contact")
         },
         License = new OpenApiLicense
         {
-            Name = "Example License",
+            Name = "License",
             Url = new Uri("https://example.com/license")
         }
     });
@@ -62,24 +68,37 @@ builder.Services.AddSwaggerGen(options =>
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:5255")
+                          .AllowAnyHeader()
+                   .AllowAnyMethod();
+                      });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseAuthentication();
+
+app.UseAuthorization();
+app.UseCors(MyAllowSpecificOrigins);
+
+IConfiguration configuration = app.Configuration;
+
+IWebHostEnvironment environment = app.Environment;
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(options =>
-{
-    options.InjectStylesheet("/swagger-ui/custom.css");
-});
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
-app.UseStaticFiles();
 
 app.MapControllers();
 

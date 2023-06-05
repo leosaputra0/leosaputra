@@ -20,7 +20,7 @@ public class BooksController : ControllerBase
     /// Get all items TodoItem.
     /// </summary>
     [HttpGet]
-    [Authorize]
+    // [Authorize]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
