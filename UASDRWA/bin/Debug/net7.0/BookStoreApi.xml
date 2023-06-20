@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookStoreApi</name>
+    </assembly>
+    <members>
+        <member name="M:TodoApi.Controllers.GuruController.Get">
+            <summary>
+            Get all Guru items.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.GuruController.Get(System.String)">
+            <summary>
+            Get a specific Guru item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.GuruController.Post(BookStoreApi.Models.Guru)">
+            <summary>
+            Creates a Guru item.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.GuruController.Put(System.String,BookStoreApi.Models.Guru)">
+            <summary>
+            Updates a specific Guru item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.GuruController.Delete(System.String)">
+            <summary>
+            Deletes a specific Guru item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.KelasController.Get">
+            <summary>
+            Get all Kelas items.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.KelasController.Get(System.String)">
+            <summary>
+            Get a specific Kelas item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.KelasController.Post(BookStoreApi.Models.Kelas)">
+            <summary>
+            Creates a Kelas item.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.KelasController.Put(System.String,BookStoreApi.Models.Kelas)">
+            <summary>
+            Updates a specific Kelas item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.KelasController.Delete(System.String)">
+            <summary>
+            Deletes a specific Kelas item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.MapelController.Get">
+            <summary>
+            Get all Mapel items.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.MapelController.Get(System.String)">
+            <summary>
+            Get a specific Mapel item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.MapelController.Post(BookStoreApi.Models.Mapel)">
+            <summary>
+            Creates a Mapel item.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.MapelController.Put(System.String,BookStoreApi.Models.Mapel)">
+            <summary>
+            Updates a specific Mapel item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.MapelController.Delete(System.String)">
+            <summary>
+            Deletes a specific Mapel item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiHarianGuruController.Get">
+            <summary>
+            Get all PresensiHarianGuru items.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiHarianGuruController.Get(System.String)">
+            <summary>
+            Get a specific PresensiHarianGuru item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiHarianGuruController.Post(BookStoreApi.Models.PresensiHarianGuru)">
+            <summary>
+            Creates a PresensiHarianGuru item.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiHarianGuruController.Put(System.String,BookStoreApi.Models.PresensiHarianGuru)">
+            <summary>
+            Updates a specific PresensiHarianGuru item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiHarianGuruController.Delete(System.String)">
+            <summary>
+            Deletes a specific PresensiHarianGuru item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiMengajarController.Get">
+            <summary>
+            Get all PresensiMengajar items.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiMengajarController.Get(System.String)">
+            <summary>
+            Get a specific PresensiMengajar item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiMengajarController.Post(BookStoreApi.Models.PresensiMengajar)">
+            <summary>
+            Creates a PresensiMengajar item.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiMengajarController.Put(System.String,BookStoreApi.Models.PresensiMengajar)">
+            <summary>
+            Updates a specific PresensiMengajar item by ID.
+            </summary>
+        </member>
+        <member name="M:TodoApi.Controllers.PresensiMengajarController.Delete(System.String)">
+            <summary>
+            Deletes a specific PresensiMengajar item by ID.
+            </summary>
+        </member>
+    </members>
+</doc>
